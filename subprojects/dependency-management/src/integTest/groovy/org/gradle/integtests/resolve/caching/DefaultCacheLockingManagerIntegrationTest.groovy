@@ -69,6 +69,7 @@ class DefaultCacheLockingManagerIntegrationTest extends AbstractHttpDependencyRe
         when:
         executer.requireOwnGradleUserHomeDir() // needs its own journal
         succeeds 'resolve'
+        executer.stop()
 
         then:
         def resource = findFile(cacheDir, 'resources-*/**/maven-metadata.xml')

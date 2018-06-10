@@ -1412,6 +1412,7 @@ allprojects {
         when:
         executer.requireOwnGradleUserHomeDir() // needs its own journal
         succeeds ":app:resolve"
+        executer.stop()
 
         then:
         outputContains("files: [lib1.jar.txt, lib2.jar.txt]")
